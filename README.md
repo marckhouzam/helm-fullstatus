@@ -6,6 +6,10 @@ It behaves similarly to how 'helm2 status' behaves.
 
 ## Installation
 
+This plugin requires `kubectl` to be installed and available on your $PATH.
+
+To install the plugin:
+
 ```
 helm plugin install https://github.com/marckhouzam/helm-fullstatus
 ```
