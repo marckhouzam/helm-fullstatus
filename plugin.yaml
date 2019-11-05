@@ -1,0 +1,5 @@
+name: "fullstatus"
+version: "0.1.0"
+usage: "provide status of resources part of the release"
+description: "This plugin shows the status of the resources that have been deployed through the specified helm release"
+command: "$HELM_PLUGIN_DIR/status.sh"
