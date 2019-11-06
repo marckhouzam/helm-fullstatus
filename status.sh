@@ -31,6 +31,16 @@ help() {
     exit 0
 }
 
+if [ $# -gt 0 ] && [ "${@: -1}" = __complete__ ]; then
+    # TODO parse any parameters
+
+    # Return completion choices of all releases.
+    # Note that the namespace, context and kubeconfig are
+    # automatically set already
+    eval $HELM_BIN list -a -q -m 0
+    exit
+fi
+
 release=""
 for i in $@; do
     if [ "$i" = "-h" ] || [ "$i" = "--help" ]; then
