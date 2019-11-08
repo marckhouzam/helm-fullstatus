@@ -31,7 +31,8 @@ help() {
     exit 0
 }
 
-if [ $# -gt 0 ] && [ "${@: -1}" = __complete__ ]; then
+# Handle completion requests
+if [ $# -gt 0 ] && [ "$1" = --complete ]; then
     # TODO parse any parameters
 
     # Return completion choices of all releases.

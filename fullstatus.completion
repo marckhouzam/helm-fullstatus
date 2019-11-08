@@ -1,0 +1,5 @@
+# $1 is the helm binary name
+# $@ is the entire command-line that requires completion
+# Let's call our main script through helm itself to benefit from
+# some of its parsing
+$1 fullstatus --complete $@
