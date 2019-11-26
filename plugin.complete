@@ -1,0 +1,37 @@
+#!/usr/bin/env sh
+
+# It is important to quote the $@ variable as the last parameter
+# can be an empty parameter, which indicates that the prefix
+# to complete is empty.
+# For example:
+#   helm fullstatus --output <TAB>
+# compared to
+#   helm fullstatus --outp<TAB>
+params=("$@")
+
+# Namespace, context, kubeconfig are all taken care of by helm
+# already.  We just need to parse extra flags.
+if [ ${#params[@]} -gt 1 ]; then
+    # Get the last full parameter.  Do not use negative array index
+    # as they don't work on bash 3
+    lastFull=${params[${#params[@]}-2]}
+    case $lastFull in
+        -o|--output)
+            echo "json table yaml"
+            exit
+            ;;
+        --revision)
+            # No completion for this one
+            exit
+            ;;
+    esac
+fi
+# Return completion choices of all releases.
+# Note that the namespace, context and kubeconfig are
+# automatically set already
+$HELM_BIN list -a -q -m 0
+
+# Complete the output with the completion directive
+# to indicate not to do file completion when the list of
+# completion is empty
+echo ":4"
