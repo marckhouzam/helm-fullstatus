@@ -52,3 +52,8 @@ NAME                                                  READY   UP-TO-DATE   AVAIL
 deployment.apps/nginx-nginx-ingress-controller        1/1     1            1           4h9m
 deployment.apps/nginx-nginx-ingress-default-backend   1/1     1            1           4h9m
 ```
+## Shell completion
+
+Shell completion is automatically functional when using the plugin.
+Please refer to `helm help completion` for how to setup shell
+completion for helm.
