@@ -55,5 +55,6 @@ deployment.apps/nginx-nginx-ingress-default-backend   1/1     1            1    
 ## Shell completion
 
 Shell completion is automatically functional when using the plugin.
+Helm v3.8.0 or higher is required however.
 Please refer to `helm help completion` for how to setup shell
 completion for helm.
